@@ -1,4 +1,6 @@
-<h1>Sign up </h1>
+<h1><%= @user.name %>, edit your profile</h1>
+
+
 <div class = "form-style-7">
   <%= form_for @user do |f| %>
   <ul>
@@ -54,11 +56,11 @@ level of education?</span></li>
     <li><%= f.label :bio%>
     <%= f.text_area :bio %>
     <span>Say something about yourself</span></li>
-    
+
     <div id="interests_form"><%= f.collection_check_boxes :interest_ids, Interest.all, :id, :name%><br>
     <span>Select your interests</span></div>
 
-    <li><%= f.submit 'Create a User' %></li>
+    <li><%= f.submit 'Save Changes' %></li>
   </ul>
   <% end %>
 </div>

@@ -1,11 +1,7 @@
-<h1>Users</h1>
-
-
-<h3> </h3><br>
-
+Hello!
 
 <table>
-  <% @users.each do |user|%>
+  <% @user.find_a_match.each do |user| %>
   <tr>
     <td id="image-align">
       <a href="<%= user_path(user) %>"><img id="avatar_img" src="<%= user.image %>"/> </a>
@@ -15,4 +11,4 @@
     </td>
   </tr>
   <% end %>
-</table>
+  </table>

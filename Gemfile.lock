@@ -55,6 +55,8 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
+    flash (0.1.0)
+      thor (~> 0.19.1)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.1)
@@ -89,6 +91,8 @@ GEM
       slop (~> 3.4)
     puma (3.8.2)
     rack (2.0.1)
+    rack-flash3 (1.0.5)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.2)
@@ -164,12 +168,14 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   coffee-rails (~> 4.2)
+  flash
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
   pg (~> 0.18)
   pry
   puma (~> 3.0)
+  rack-flash3 (~> 1.0, >= 1.0.5)
   rails (~> 5.0.2)
   sass-rails (~> 5.0)
   spring

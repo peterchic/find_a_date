@@ -1,16 +1,26 @@
-<h1><%= @user.name %></h1>
 
 
-<%= @user.age %><br>
-<%= @user.sex %><br>
-<%= @user.orientation %><br>
-<%= @user.ethnicity %><br>
-<%= @user.height %><br>
-<%= @user.physical_shape %><br>
-<%= @user.children %><br>
-<%= @user.relationship %><br>
-<%= @user.education %><br>
-<%= @user.image %><br>
-<%= @user.bio %><br>
+<table>
+  <th colspan="2"><h1><%= @user.name %></h1></th>
+  <tr>
+    <td id="image-align">
+      <img id="profile_img" src="<%= @user.image %>"/>
+    </td>
+    <td>
+      <h3>Age: </h3><%= @user.age %><br>
+      <h3>Gender: </h3><%= @user.sex %><br>
+      <h3>Sexual Orientation: </h3><%= @user.orientation %><br>
+      <h3>Ethnicity: </h3><%= @user.ethnicity %><br>
+      <h3>Height: </h3><%= @user.height %><br>
+      <h3>Physical shape: </h3><%= @user.physical_shape %><br>
+      <h3>Children: </h3><%= @user.children %><br>
+      <h3>Relationship: </h3><%= @user.relationship %><br>
+      <h3>Education: </h3><%= @user.education %><br>
+      <h3>Bio: </h3><%= @user.bio %><br>
+    </td>
+  </tr>
+  <td colspan="2" align="center"><%= link_to "Find A Match!", matches_path %></td>
+  <td colspan="2" align="center"><%= link_to "Edit Profile", edit_user_path %></td>
 
-<%= button_to "Find A Match!", users_path %>
+
+</table>

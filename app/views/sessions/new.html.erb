@@ -1,0 +1,12 @@
+<h2>Login</h2>
+
+<%= flash[:notice]  %>
+
+
+<%= form_tag :sessions do %>
+<li><%= label_tag :name %>
+<%= text_field_tag :name %></li>
+<li><%= label_tag :password %>
+<%= password_field_tag :password %></li>
+<li><%= submit_tag "Login" %></li>
+<% end %>

@@ -6,37 +6,53 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @interests = Interest.all
   end
 
   def create
+    #binding.pry
     @user = User.new(user_params)
-    binding.pry
     if @user.valid?
       @user.save
-      session[:user] = @user.id
+      #binding.pry
+      session[:user_id] = @user.id
+
       redirect_to user_path(@user)
     else
       redirect_to new_user_path
     end
-
-    def show
-      @user = User.find(params[:id])
-
-    end
   end
 
+  def show
+    #  binding.pry
+      @user = User.find(params[:id])
 
+    #binding.pry
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path(@user)
+  end
+
+  def matches
+    @user = User.find(params[:id])
+
+
+  end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :city, :age, :sex, :orientation, :ethnicity, :height, :physical_shape, :children, :relationship, :education, :image, :bio)
+    # binding.pry
+    params.require(:user).permit(:name, :password, :sex, :orientation, :ethnicity, :image, interest_ids: [])
   end
 
+  #:city, :age, :sex, , :height, :physical_shape, :children, :education,:bio
+  #i deleted column 'relationship'
 end
-
-
-#Sign Up (form)
-#Validations
-# Editing a form
-# Loging in , logging out

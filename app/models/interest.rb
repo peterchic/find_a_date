@@ -1,6 +1,6 @@
 class Interest < ApplicationRecord
-  has_many :matches
-  has_many :users, through: :matches
+  has_many :user_interests
+  has_many :users, through: :user_interests
 
 
 end

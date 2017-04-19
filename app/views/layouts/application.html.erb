@@ -2,13 +2,39 @@
 <html>
   <head>
     <title>FindADate</title>
+     <%= stylesheet_link_tag "application" %>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Questrial|Raleway');
+    </style>
   </head>
 
-  <body>
+  <body> <!--add background color for body -->
+    <div id="header">
+      <div id="navbar">
+        <h1>Find a Date</h1>
+        <ul>
+          <li><a href="/users"/>Home</a></li>
+          <% if logged_in? %>
+          <li> Welcome, <%= @user.name %></li>
+          <li><%= link_to "Sign Out", new_session_path, method: 'delete' %><li>
+          <% else %>
+            <li><%= link_to "Sign Up", new_user_path %></li>
+            <li><%= link_to "Sign In", new_session_path %></li>
+          <% end %> </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="wrapper">
+
+
+
+
     <%= yield %>
+    </div>
   </body>
 </html>
