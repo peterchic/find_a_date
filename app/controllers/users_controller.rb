@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
 
+  before_action :authorize, except: [:new, :create]
   def index
     @users = User.all
+    if logged_in?
+      @user = User.find(session[:user_id])
+    end
   end
+
 
   def new
     @user = User.new
@@ -26,12 +31,13 @@ class UsersController < ApplicationController
   def show
     #  binding.pry
       @user = User.find(params[:id])
-
     #binding.pry
   end
 
   def edit
+
     @user = User.find(params[:id])
+    validate_url_hack
   end
 
   def update
@@ -40,10 +46,14 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def destroy
+    User.find(params[:id]).destroy
+    session.clear
+    redirect_to "/"
+  end
+
   def matches
     @user = User.find(params[:id])
-
-
   end
 
   private
@@ -52,6 +62,16 @@ class UsersController < ApplicationController
     # binding.pry
     params.require(:user).permit(:name, :password, :sex, :orientation, :ethnicity, :image, interest_ids: [])
   end
+
+  def validate_url_hack
+  # Check the params hash to see if the passed :id matches the current user's id
+  # (note the .to_i on params[:id], as you are comparing against a Fixnum)
+  unless params[:id].to_i == session[:user_id]
+    # This line redirects the user to the previous action
+    redirect_to users_path
+    flash[:message] = "Sorry, you don't have permission to do that."
+  end
+end
 
   #:city, :age, :sex, , :height, :physical_shape, :children, :education,:bio
   #i deleted column 'relationship'

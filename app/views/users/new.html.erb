@@ -19,15 +19,15 @@
     <span>Enter your age here</span></li>
 
     <li><%= f.label :gender%>
-    <%= select(:user, :sex, %w[Male Female Other]) %>
+    <%= select(:user, :sex, %w[ Male Female Other], :include_blank => true)%>
     <span>Select your gender</span></li>
 
     <li><%= f.label :orientation%>
-    <%= select(:user, :orientation, %w[Straight Lesbian Gay Fluent]) %>
+    <%= select(:user, :orientation, %w[Straight Lesbian Gay Fluent], :include_blank => true) %>
     <span>Select your orientation</span> </li>
 
     <li><%= f.label :ethnicity%>
-    <%= select(:user, :ethnicity, ["White", "Hispanic or Latino", "Black/African descent", "Asian/Pacific Islander", "Korean", "Japanese", "Chinese", "Indian", "Arabic/Middle Eastern", "Native American", "Other" ]) %>
+    <%= select(:user, :ethnicity, ["White", "Hispanic or Latino", "Black/African descent", "Asian/Pacific Islander", "Korean", "Japanese", "Chinese", "Indian", "Arabic/Middle Eastern", "Native American", "Other" ], :include_blank => true) %>
     <span>Select your ethnicity</span></li>
 
     <li><%= f.label :height%>
@@ -35,7 +35,7 @@
     <span>Enter your height in inches</span></li>
 
     <li><%= f.label :physical_shape %>
-    <%= select(:user, :physical_shape, ["Athletic", "Could be better", "Big guy"]) %>
+    <%= select(:user, :physical_shape, ["Athletic", "Could be better", "Big guy"], :include_blank => true) %>
     <span>Select your physical shaper</span></li>
 
     <li><%= f.label :children %>
@@ -43,7 +43,7 @@
     <span>How many children do you have?</span></li>
 
     <li><%= f.label :education%>
-      <%= select(:user, :education, ["Doctorate", "Masters", "Bachelors", "Associates", "Some College", "High School", "Did not complete High School" ]) %>
+      <%= select(:user, :education, ["Doctorate", "Masters", "Bachelors", "Associates", "Some College", "High School", "Did not complete High School" ], :include_blank => true) %>
     <span>What is your highest
 level of education?</span></li>
 
@@ -54,7 +54,7 @@ level of education?</span></li>
     <li><%= f.label :bio%>
     <%= f.text_area :bio %>
     <span>Say something about yourself</span></li>
-    
+
     <div id="interests_form"><%= f.collection_check_boxes :interest_ids, Interest.all, :id, :name%><br>
     <span>Select your interests</span></div>
 

@@ -19,8 +19,13 @@
       <h3>Bio: </h3><%= @user.bio %><br>
     </td>
   </tr>
-  <td colspan="2" align="center"><%= link_to "Find A Match!", matches_path %></td>
-  <td colspan="2" align="center"><%= link_to "Edit Profile", edit_user_path %></td>
 
+  <% if self.current_user == @user %>
+    <td colspan="2" align="center"><%= link_to "Find A Match!", matches_path %></td>
 
+    <td colspan="2" align="center"><%= link_to "Edit Profile", edit_user_path %></td>
+
+  <% end %>
+
+  <td colspan="2" align="center"><%= link_to "Send me A Message", new_message_path %></td>
 </table>

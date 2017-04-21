@@ -1,8 +1,15 @@
+<head>
+  <style>
+  h2 {color:red;}
+  </style>
+</head>
+
 <h1>Users</h1>
 
 
 <h3> </h3><br>
 
+<h2 style=(color: red;)><%=flash[:message]%></h2>
 
 <table>
   <% @users.each do |user|%>

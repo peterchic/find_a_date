@@ -15,26 +15,32 @@
   <body> <!--add background color for body -->
     <div id="header">
       <div id="navbar">
-        <h1>Find a Date</h1>
+        <h1><a href="/"/>Find a Date</a></h1>
         <ul>
-          <li><a href="/users"/>Home</a></li>
+
+          <li class="button"><a href="/users"/>Users</a></li>
+
           <% if logged_in? %>
-          <li> Welcome, <%= @user.name %></li>
-          <li><%= link_to "Sign Out", new_session_path, method: 'delete' %><li>
+
+            <li class="button"><a href="/users/<%=session[:user_id]%>"/> Welcome, <%= User.find(session[:user_id]).name%> |</a></li>
+
+            <li class="button"><%= link_to "Log Out  |", new_session_path, method: 'delete' %><li>
+
           <% else %>
-            <li><%= link_to "Sign Up", new_user_path %></li>
-            <li><%= link_to "Sign In", new_session_path %></li>
+
+            <li class="button"><%= link_to "Sign Up  |", new_user_path %></li>
+
+            <li class="button"><%= link_to "Log In  |", new_session_path %></li>
+
           <% end %> </li>
         </ul>
       </div>
     </div>
 
-    <div id="wrapper">
-
-
-
+    <div class="wrapper">
 
     <%= yield %>
+
     </div>
   </body>
 </html>
