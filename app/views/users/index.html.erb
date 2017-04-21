@@ -11,15 +11,17 @@
 
 <h2 style=(color: red;)><%=flash[:message]%></h2>
 
-<table>
+
   <% @users.each do |user|%>
-  <tr>
-    <td id="image-align">
-      <a href="<%= user_path(user) %>"><img id="avatar_img" src="<%= user.image %>"/> </a>
-    </td>
-    <td>
-      <%= link_to user.name, user_path(user) %>
-    </td>
-  </tr>
+
+  <div class="profile_short"> <%# creates a box where short profile info will be presented in search results %>
+    <div id="image-align">
+      <a href="<%= user_path(user) %>"><img id="avatar_img" src="<%= user.image %>"/>
+      </a>
+      <p><%= link_to user.name, user_path(user) %></p>
+      <p>Age: <%= user.age %></p>
+      <p>Orientation: <%= user.orientation %></p>
+    </div>
+
+  </div>
   <% end %>
-</table>

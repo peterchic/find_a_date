@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/messages/new/:id', to: 'messages#new', as: 'new_message'
   post '/messages', to: 'messages#create'
   get '/messages/', to: 'messages#outbox', as: 'sent_messages'
+  get '/messages/inbox', to: 'messages#inbox', as: 'received_messages'
 
 
 

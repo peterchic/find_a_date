@@ -1,1 +1,7 @@
-<h1>Message me!</h1>
+<h1>Message <%= @receiver.name  %>!</h1>
+<%= form_for @message do |f| %>
+<%= f.label :content %>
+<%= f.text_area :content %>
+<%= f.hidden_field :match_id, value: params[:id] %>
+<%= f.submit "Send Love" %>
+<% end %>

@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   def new
     @user = User.new
     @interests = Interest.all

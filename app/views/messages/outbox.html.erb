@@ -1,1 +1,9 @@
 <h1>Your Sent Messages</h1>
+
+<% @sent_messages.each do |message| %>
+<li>
+  Date: <%= message.created_at.to_s.split(" ").first %>
+  To: <%= link_to message.match.name, user_path(message.match_id)%>
+  Content: <%= message.content %> <%= button_to "Send more", new_message_path(message.match_id), method: "get"%><br>
+</li>
+<% end %>

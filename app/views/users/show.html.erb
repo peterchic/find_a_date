@@ -6,6 +6,7 @@
     <td id="image-align">
       <img id="profile_img" src="<%= @user.image %>"/>
     </td>
+
     <td>
       <h3>Age: </h3><%= @user.age %><br>
       <h3>Gender: </h3><%= @user.sex %><br>
@@ -16,15 +17,21 @@
       <h3>Children: </h3><%= @user.children %><br>
       <h3>Relationship: </h3><%= @user.relationship %><br>
       <h3>Education: </h3><%= @user.education %><br>
+      <h3>Interests: </h3>
+      <% @user.interests.each do |interest| %>
+        <li> <%= interest.name %> </li>
+      <% end %>
+
       <h3>Bio: </h3><%= @user.bio %><br>
     </td>
   </tr>
 
   <% if self.current_user == @user %>
-    <td colspan="2" align="center"><%= link_to "Find A Match!", matches_path %></td>
 
     <td colspan="2" align="center"><%= link_to "Edit Profile", edit_user_path %></td>
 
+    <li><%= link_to "Find A Match!", matches_path %></li>
+  
   <% end %>
 
   <td colspan="2" align="center"><%= link_to "Send me A Message", new_message_path %></td>

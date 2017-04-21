@@ -78,6 +78,7 @@ h1 {
 /* SHOW PAGE*/
 #profile_img {
   height: 400px;
+  border-radius: 10px;
 
 }
 
@@ -86,10 +87,22 @@ h1 {
 }
 
 /* USERS PAGE */
+
+.profile_short {
+  display: inline-grid;
+  width: 220px;
+  margin: 10px;
+  background-color: white;
+  padding: 25px;
+  position: relative;
+}
+
 #avatar_img {
-  height: 150px;
+  height: 200px;
   border-radius: 75px;
 }
+
+
 
 /* Users/new form style */
 

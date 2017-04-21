@@ -1,0 +1,13 @@
+<h2>Inbox</h2>
+
+<% @received_messages.each do |message| %>
+  <ul>
+    <li> <strong>Sent on:</strong> <%= message.created_at.to_s.split(" ").first %>
+      <strong>From:</strong> <%= message.user.name %>
+      <ul>
+        <li><strong>Content:</strong> </li>
+        <li> <%= message.content %> </li>
+        <%= button_to "Reply", new_message_path(message.user_id), method: "get" %></li>
+      </ul>
+  </ul>
+<% end %>
