@@ -3,6 +3,47 @@
   h2 {color:red;}
   </style>
 </head>
+<div class = "form-style-1">
+  <%= search_form_for @search do |f| %>
+  <ul>
+      <li><%= f.label :name_cont, "Name contains"%>
+      <%= f.text_field :name_cont %></li>
+
+      <li id="and"> <%= f.label :age_gteq, "Age between"%>
+      <%= f.text_field :age_gteq %></li>
+      <li id="and"><%= f.label :age_lteq, "and"%>
+      <%= f.text_field :age_lteq %></li>
+
+      <li><%= f.label :sex_eq, "Gender"%>
+      <%= select(:q, :sex_eq, %w[ Male Female Other], :include_blank => true) %></li>
+
+      <li><%= f.label :orientation_eq, "Sexual Orientation"%>
+      <%= select(:q, :orientation_eq, %w[Straight Lesbian Gay Fluent], :include_blank => true) %></li>
+
+      <li><%= f.label :ethnicity_eq, "Ethnicity"%>
+      <%= select(:q, :ethnicity_eq, %w["White", "Hispanic or Latino", "Black/African descent", "Asian/Pacific Islander", "Korean", "Japanese", "Chinese", "Indian", "Arabic/Middle Eastern", "Native American", "Other"], :include_blank => true) %></li>
+
+      <li id="and"> <%= f.label :height_gteq, "Height between"%>
+      <%= f.text_field :height_gteq %></li>
+      <li><%= f.label :height_lteq, "and"%>
+      <%= f.text_field :height_lteq %></li>
+
+      <li><%= f.label :physical_shape_eq, "Physical Shape" %>
+      <%= select(:q, :physical_shape_eq, ["Athletic", "Could be better", "Big guy"], :include_blank => true) %></li>
+
+
+      <li>
+
+        <div id="interests_form">
+          <%= f.label :interest_ids_eq_any, "Interests" %>
+          <%= f.collection_check_boxes :interests_id_eq_any, Interest.all, :id, :name%>
+        </div>
+      </li>
+      <li><%= f.submit "Search" %></li>
+  </ul>
+<% end %>
+</div>
+
 
 <h1>Users</h1>
 

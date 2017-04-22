@@ -1,4 +1,6 @@
 <h1>Sign up </h1>
+
+<%= flash[:notice] %>
 <div class = "form-style-7">
   <%= form_for @user do |f| %>
   <ul>
@@ -8,6 +10,10 @@
 
     <li><%= f.label :password%>
       <%= f.password_field :password %>
+      <span>Enter your password here</span></li>
+
+    <li><%= f.label :password_confirmation%>
+      <%= f.password_field :password_confirmation %>
       <span>Enter your password here</span></li>
 
     <li><%= f.label :city%>

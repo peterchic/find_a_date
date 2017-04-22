@@ -69,7 +69,7 @@ h1 {
 
 #navbar li {
 
-  display: inline-block;
+  display: inline;
   padding: 5px;
   font-family: 'Raleway', sans-serif;
 }
@@ -104,7 +104,7 @@ h1 {
 
 
 
-/* Users/new form style */
+/* Sign Up form style */
 
 .form-style-7 {
   max-width:400px;
@@ -256,6 +256,141 @@ h1 {
 }
 
 
+/* Search form style*?/
+
+/* Sign Up form style */
+
+.form-style-1 {
+  max-width:auto;
+  margin-left: 0px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius:10px;
+  padding:20px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.form-style-1 ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+
+.form-style-1 li{
+    display: inline-block;
+    padding: 9px;
+    border:1px solid #DDDDDD;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+
+.form-style-1 li:last-child{
+    border:none;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.form-style-1 li > label{
+    display: block;
+    float: left;
+    margin-top: -19px;
+    background: rgba(255, 255, 255, 0.8);
+    height: 14px;
+    padding: 2px 5px 2px 5px;
+    color: #B9B9B9;
+    font-size: 14px;
+    overflow: hidden;
+    font-family: 'Raleway', sans-serif;
+}
+.form-style-1 input[type="text"],
+.form-style-1 input[type="date"],
+.form-style-1 input[type="datetime"],
+.form-style-1 input[type="number"],
+.form-style-1 input[type="search"],
+.form-style-1 textarea,
+.form-style-1 select
+{
+
+    width: 100%;
+    display: block;
+    outline: none;
+    border: none;
+    height: 15px; /* was 25*/
+    line-height: 10px;/* was 25*/
+    font-size: 12px;/* was 16*/
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+}
+.form-style-1 input[type="text"]:focus,
+.form-style-1 input[type="date"]:focus,
+.form-style-1 input[type="datetime"]:focus,
+.form-style-1 input[type="number"]:focus,
+.form-style-1 input[type="search"]:focus,
+.form-style-1 textarea:focus,
+.form-style-1 select:focus
+{
+}
+
+.form-style-1 textarea{
+    resize:none;
+}
+.form-style-1 input[type="submit"],
+.form-style-1 input[type="button"]{
+    background: #332a3d;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-bottom: 3px solid #332a3d;
+    border-radius: 3px;
+    color: #D2E2FF;
+}
+
+.form-style-1 input[type="submit"]:hover,
+.form-style-1 input[type="button"]:hover{
+    background: #5d4d70;
+    color:#fff;
+}
+
+#interests_form {
+  max-width:900px;
+  margin: -5px auto;
+  background:#fff;
+  border-radius:2px;
+  padding:20px;
+  font-family: 'Raleway', sans-serif;
+  display: block;
+  padding: 9px;
+  border:1px solid #DDDDDD;
+  border-radius: 3px;
+}
+
+
+#interests_form > label{
+    margin-top: -19px;
+    background: #FFFFFF;
+    height: 14px;
+    padding: 2px 5px 2px 5px;
+    color: #B9B9B9;
+    font-size: 14px;
+    overflow: hidden;
+    font-family: 'Raleway', sans-serif;
+}
+
+#and {
+  max-width:130px;
+  margin: -5px auto;
+  background:#fff;
+  border-radius:2px;
+  padding:20px;
+  font-family: 'Raleway', sans-serif;
+  padding: 9px;
+  border:1px solid #DDDDDD;
+  border-radius: 3px;
+}
+
+
 /* LINKS */
 
 /* logo find a date color */
@@ -340,21 +475,17 @@ div ul li a:active {
 .button {
   position: relative;
   float :right;
-  display: inline-block;
-  margin-top: -50px;
-  margin-bottom: 30px;
-  margin-right: auto;
+  display: block;
+  margin-top: -33px;
   font-size: 20px;
-  border: 2px solid red;
 }
 
+/* Buttons header Inbox Outbox */
+
 .button_sm {
-  position: relative;
-  float :right;
-  display: block;
-  border: 2px solid red;
-  font-size: 10px;
+display: block;
 }
+
 
 /* Show page */
 .container {

@@ -2,7 +2,10 @@ class UsersController < ApplicationController
 
   before_action :authorize, except: [:new, :create]
   def index
-    @users = User.all
+    @search = User.search(params[:q])
+    @users = @search.result
+    @interests = Interest.all
+
     if logged_in?
       @user = User.find(session[:user_id])
     end
@@ -15,16 +18,21 @@ class UsersController < ApplicationController
 
   def create
     #binding.pry
+
     @user = User.new(user_params)
+    if @user.image.empty?
+      @user.image = "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
+    end
     if @user.valid?
       @user.save
       #binding.pry
       session[:user_id] = @user.id
-
       redirect_to user_path(@user)
     else
-      redirect_to new_user_path
+      flash[:notice] = "Incorrect info"
+    redirect_to new_user_path
     end
+
   end
 
   def show
@@ -59,24 +67,30 @@ class UsersController < ApplicationController
 
   def search
     # @search = User.search(params[:search]).all
+
+
   end
 
   private
 
   def user_params
     # binding.pry
-    params.require(:user).permit(:name, :password, :sex, :orientation, :ethnicity, :image, :city, :age, :height, :physical_shape, :children, :education, :bio, interest_ids: [])
+    params.require(:user).permit(:name, :password, :password_confirmation, :sex, :orientation, :ethnicity, :image, :city, :age, :height, :physical_shape, :children, :education, :bio, interest_ids: [])
   end
 
   def validate_url_hack
   # Check the params hash to see if the passed :id matches the current user's id
   # (note the .to_i on params[:id], as you are comparing against a Fixnum)
-  unless params[:id].to_i == session[:user_id]
+    unless params[:id].to_i == session[:user_id]
     # This line redirects the user to the previous action
     redirect_to users_path
     flash[:message] = "Sorry, you don't have permission to do that."
+    end
   end
-end
+
+  def password_match
+    params[:password] == params[:password_confirmation]
+  end
 
   #:city, :age, :sex, , :height, :physical_shape, :children, :education,:bio
   #i deleted column 'relationship'
