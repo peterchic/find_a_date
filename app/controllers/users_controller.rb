@@ -30,11 +30,13 @@ class UsersController < ApplicationController
   def show
     #  binding.pry
       @user = User.find(params[:id])
+      @gifs = ["https://media.giphy.com/media/rlkpAmX3gaLWE/giphy.gif", "https://media.giphy.com/media/6iby2g9qPhpVC/giphy.gif", "https://media.giphy.com/media/6iby2g9qPhpVC/giphy.gif", "https://media.giphy.com/media/DdotCCeucTHmU/giphy.gif", "https://media.giphy.com/media/ysMRbIu53piCY/giphy.gif", "https://media.giphy.com/media/10e9zpcP1fty3m/giphy.gif",
+      "https://media.giphy.com/media/VEPZELrzlenZu/giphy.gif",
+    "https://media.giphy.com/media/12ipPASHq1luj6/giphy.gif", "https://media.giphy.com/media/13CoXDiaCcCoyk/giphy.gif", "https://media.giphy.com/media/1VKi2xud4qsrS/giphy.gif" ]
     #binding.pry
   end
 
   def edit
-
     @user = User.find(params[:id])
     validate_url_hack
   end
@@ -55,11 +57,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def search
+    # @search = User.search(params[:search]).all
+  end
+
   private
 
   def user_params
     # binding.pry
-    params.require(:user).permit(:name, :password, :sex, :orientation, :ethnicity, :image, interest_ids: [])
+    params.require(:user).permit(:name, :password, :sex, :orientation, :ethnicity, :image, :city, :age, :height, :physical_shape, :children, :education, :bio, interest_ids: [])
   end
 
   def validate_url_hack

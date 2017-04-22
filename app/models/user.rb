@@ -56,14 +56,17 @@ class User < ApplicationRecord
     end
   end
 
+  # def search search_term
+  #
+  #   return scoped unless search_term.present?
+  #   where(
+  #     ['gender LIKE ?', "%#{search_term}%" AND 'age LIKE ?', "%#{search_term}%"] AND 'sexual_orientation LIKE ?' "%#{search_term}%" AND 'ethnicity LIKE ?', "%#{search_term}%"]
+  #   )
+  # end
 
 
 
 
-  # search by sexual orientation:
-  # find people with the same orientation
 
-
-  #if person is straight: finds all people of opposite gender, also Straight
 
 end

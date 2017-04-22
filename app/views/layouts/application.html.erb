@@ -26,9 +26,9 @@
 
             <li class="button"><%= link_to "Log Out  |", new_session_path, method: 'delete' %><li>
 
-              <li> <%= link_to "Inbox", received_messages_path %></li>
-              <li> <%= link_to "Outbox", sent_messages_path %></li>
-                
+            <li class="button_sm"> <%= link_to "Inbox", received_messages_path %></li>
+            <li class="button_sm"> <%= link_to "Outbox", sent_messages_path %></li>
+
           <% else %>
 
             <li class="button"><%= link_to "Sign Up  |", new_user_path %></li>

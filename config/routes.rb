@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   root to: 'application#main'
   get '/users/:id/matches', to: 'users#matches', as: 'matches'
+  get '/users/:id/search', to: 'users#search', as: 'search'
   get '/messages/new/:id', to: 'messages#new', as: 'new_message'
   post '/messages', to: 'messages#create'
   get '/messages/', to: 'messages#outbox', as: 'sent_messages'

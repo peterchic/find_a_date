@@ -1,38 +1,42 @@
-
-
-<table>
-  <th colspan="2"><h1><%= @user.name %></h1></th>
-  <tr>
-    <td id="image-align">
+<div class="container">
+  <div class="avatar-flip">
       <img id="profile_img" src="<%= @user.image %>"/>
-    </td>
+      <img id="profile_img" src="<%= @gifs.sample %>"/>
+  </div>
 
-    <td>
-      <h3>Age: </h3><%= @user.age %><br>
-      <h3>Gender: </h3><%= @user.sex %><br>
-      <h3>Sexual Orientation: </h3><%= @user.orientation %><br>
-      <h3>Ethnicity: </h3><%= @user.ethnicity %><br>
-      <h3>Height: </h3><%= @user.height %><br>
-      <h3>Physical shape: </h3><%= @user.physical_shape %><br>
-      <h3>Children: </h3><%= @user.children %><br>
-      <h3>Relationship: </h3><%= @user.relationship %><br>
-      <h3>Education: </h3><%= @user.education %><br>
-      <h3>Interests: </h3>
-      <% @user.interests.each do |interest| %>
-        <li> <%= interest.name %> </li>
-      <% end %>
+  <h1><%= @user.name %></h1>
+  Bio: </h3><%= @user.bio %>
+    <table>
+      <tr>
+        <td> <h3>Age: </h3><%= @user.age %></td>
 
-      <h3>Bio: </h3><%= @user.bio %><br>
-    </td>
-  </tr>
+        <td><h3>Gender: </h3><%= @user.sex %></td>
+
+        <td><h3>Sexual Orientation: </h3><%= @user.orientation %></td>
+        <td><h3>Ethnicity: </h3><%= @user.ethnicity %></td>
+        <td><h3>Height: </h3><%= @user.height %></td>
+      </tr>
+      <tr>
+        <td><h3>Physical shape: </h3><%= @user.physical_shape %></td>
+        <td><h3>Children: </h3><%= @user.children %></td>
+        <td><h3>Education: </h3><%= @user.education %></td>
+        <td><h3>Interests: </h3></td>
+        <% @user.interests.each do |interest| %>
+        <%= interest.name %>
+        <% end %>
+
+
+
+      </tr>
+    </table>
 
   <% if self.current_user == @user %>
 
-    <td colspan="2" align="center"><%= link_to "Edit Profile", edit_user_path %></td>
+    <%= link_to "Edit Profile", edit_user_path %>
 
-    <li><%= link_to "Find A Match!", matches_path %></li>
-  
+    <li><%= link_to "Find A Match!", matches_path %>
+
   <% end %>
 
-  <td colspan="2" align="center"><%= link_to "Send me A Message", new_message_path %></td>
-</table>
+  <%= link_to "Send me A Message", new_message_path %>
+</div>

@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
 
   def create
     message = Message.new(content: params[:message][:content], user_id: session[:user_id], match_id: params[:message][:match_id])
-    binding.pry
+  
     if message.valid?
        message.save
        redirect_to sent_messages_path
