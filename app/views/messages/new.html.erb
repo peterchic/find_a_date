@@ -1,7 +1,8 @@
 <h1>Message <%= @receiver.name  %>!</h1>
+<div class="form-style-2">
 <%= form_for @message do |f| %>
-<%= f.label :content %>
-<%= f.text_area :content %>
+<li> <%= f.label :content %>
+<%= f.text_area :content %> </li>
 <%= f.hidden_field :match_id, value: params[:id] %>
-<%= f.submit "Send Love" %>
+<li><%= f.submit "Send Love" %></li>
 <% end %>

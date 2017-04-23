@@ -24,7 +24,7 @@ h1 {
   font-family: 'Questrial', sans-serif;
 }
  .wrapper {
-    width: 975px;
+    width: 990px;
     margin: 0 auto;
     margin-top: -30px;
     border-radius: 10px;
@@ -37,7 +37,7 @@ h1 {
 }
 
 #header {
-  width: 1000px;
+  width: 1015px;
   margin: 0 auto;
   margin-bottom: -10px;
   position: relative;
@@ -78,28 +78,52 @@ h1 {
 /* SHOW PAGE*/
 #profile_img {
   height: 400px;
-
-
 }
 
 #image-align {
   vertical-align: top;
+
 }
 
 /* USERS PAGE */
 
 .profile_short {
   display: inline-grid;
-  width: 220px;
-  margin: 10px;
+  width: 240px;
+  margin: 17px;
   background-color: white;
   padding: 25px;
   position: relative;
+  float: left;
+  display: inline-grid;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+}
+
+.profile_short a:link {
+    text-decoration: none;
+
 }
 
 #avatar_img {
-  height: 200px;
+  height: 240px;
   border-radius: 75px;
+}
+
+.profile_short input[type="submit"],
+.profile_short input[type="button"]{
+    background: #332a3d;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-bottom: 3px solid #332a3d;
+    border-radius: 3px;
+    color: #D2E2FF;
+}
+
+.profile_short input[type="submit"]:hover,
+.profile_short input[type="button"]:hover{
+    background: #5d4d70;
+    color:#fff;
 }
 
 
@@ -256,9 +280,8 @@ h1 {
 }
 
 
-/* Search form style*?/
+/* Search form style*/
 
-/* Sign Up form style */
 
 .form-style-1 {
   max-width:auto;
@@ -500,6 +523,7 @@ display: block;
   -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
   -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
   text-align: center;
+  font-family: 'Questrial', sans-serif;
 }
 .container:hover .avatar-flip {
   transform: rotateY(180deg);
@@ -563,5 +587,176 @@ p {
   color: #666;
 }
 
+.container input[type="submit"],
+.container input[type="button"]{
+    background: #332a3d;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-bottom: 3px solid #332a3d;
+    border-radius: 3px;
+    color: #D2E2FF;
+}
+
+.container input[type="submit"]:hover,
+.container input[type="button"]:hover{
+    background: #5d4d70;
+    color:#fff;
+}
+
+table {
+
+  width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  text-align: left;
+}
+
+/* New message form*/
+.form-style-2 {
+  max-width:auto;
+  margin-left: 0px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius:10px;
+  padding:20px;
+  font-family: 'Raleway', sans-serif;
+}
+
+
+.form-style-2 li{
+
+
+    display: inline-block;
+    padding: 9px;
+    border:1px solid #DDDDDD;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+
+
+.form-style-2 li > label{
+    display: block;
+    float: left;
+    margin-top: -19px;
+    background: rgba(255, 255, 255, 0.8);
+    height: 14px;
+    padding: 2px 5px 2px 5px;
+    color: #B9B9B9;
+    font-size: 14px;
+    overflow: hidden;
+    font-family: 'Raleway', sans-serif;
+}
+
+.form-style-2 textarea {
+  border: none;
+  background: none;
+  min-height: 100px;
+  width: 905px;
+  max-width: 905px;
+}
+.form-style-2 select
+{
+
+    width: 100%;
+    display: block;
+    outline: none;
+    border: none;
+    height: 15px;
+    line-height: 10px;
+    font-size: 12px;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+.form-style-2 textarea:focus,
+.form-style-2 select:focus
+{
+}
+
+
+.form-style-2 input[type="submit"],
+.form-style-2 input[type="button"]{
+    background: #332a3d;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-bottom: 3px solid #332a3d;
+    border-radius: 3px;
+    color: #D2E2FF;
+}
+
+.form-style-2 input[type="submit"]:hover,
+.form-style-2 input[type="button"]:hover{
+    background: #5d4d70;
+    color:#fff;
+}
+
+/* Inbox & Outbox*/
+
+.table-mail {
+  width: 900px;
+  position: relative;
+  font-size: 15px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.table-mail th {
+  border-top: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+#col_0{
+  width: 50px;
+}
+#col_1{
+  width: 80px;
+}
+
+#col_2{
+  width: 60px;
+}
+
+
+
+.table-mail input[type="submit"],
+.table-mail input[type="button"]{
+    background: #332a3d;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-bottom: 3px solid #332a3d;
+    border-radius: 3px;
+    color: #D2E2FF;
+}
+
+.table-mail input[type="submit"]:hover,
+.table-mail input[type="button"]:hover{
+    background: #5d4d70;
+    color:#fff;
+}
+
+#link a:link{
+  color: black;
+  text-decoration: none;
+}
+
+
+/* visited link */
+#link a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+/* mouse over link */
+#link a:hover {
+    color: #black;
+    text-decoration: none;
+}
+
+/* selected link */
+#link a:active {
+    color: black;
+    text-decoration: none;
+}
 
 </style>

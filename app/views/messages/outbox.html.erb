@@ -1,9 +1,22 @@
 <h1>Your Sent Messages</h1>
 
+<table class="table-mail">
+  <tr>
+    <th id="col_0"> # </th>
+    <th id="col_1">Date: </th>
+    <th id="col_2">To:</th>
+    <th id="col_3">Content:</th>
+    <th></th>
+  </tr>
+  <% counter = 1 %>
 <% @sent_messages.each do |message| %>
-<li>
-  Date: <%= message.created_at.to_s.split(" ").first %>
-  To: <%= link_to message.match.name, user_path(message.match_id)%>
-  Content: <%= message.content %> <%= button_to "Send more", new_message_path(message.match_id), method: "get"%><br>
-</li>
+  <tr>
+    <td><%= counter %></td>
+    <td><%= message.created_at.to_s.split(" ").first %></td>
+    <td id="link"><%= link_to message.match.name, user_path(message.match_id)%></td>
+    <td><%= message.content %> </td>
+    <td><%= button_to "Send more", new_message_path(message.match_id), method: "get"%></td>
+  </tr>
+  <% counter+=1 %>
 <% end %>
+</table>

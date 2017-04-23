@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @search = User.search(params[:q])
     @users = @search.result
     @interests = Interest.all
+    
 
     if logged_in?
       @user = User.find(session[:user_id])
