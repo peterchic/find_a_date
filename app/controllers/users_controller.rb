@@ -5,10 +5,11 @@ class UsersController < ApplicationController
     @search = User.search(params[:q])
     @users = @search.result
     @interests = Interest.all
-    
+
 
     if logged_in?
       @user = User.find(session[:user_id])
+    
     end
   end
 
@@ -40,8 +41,7 @@ class UsersController < ApplicationController
     #  binding.pry
       @user = User.find(params[:id])
       @gifs = ["https://media.giphy.com/media/rlkpAmX3gaLWE/giphy.gif", "https://media.giphy.com/media/6iby2g9qPhpVC/giphy.gif", "https://media.giphy.com/media/6iby2g9qPhpVC/giphy.gif", "https://media.giphy.com/media/DdotCCeucTHmU/giphy.gif", "https://media.giphy.com/media/ysMRbIu53piCY/giphy.gif", "https://media.giphy.com/media/10e9zpcP1fty3m/giphy.gif",
-      "https://media.giphy.com/media/VEPZELrzlenZu/giphy.gif",
-    "https://media.giphy.com/media/12ipPASHq1luj6/giphy.gif", "https://media.giphy.com/media/13CoXDiaCcCoyk/giphy.gif", "https://media.giphy.com/media/1VKi2xud4qsrS/giphy.gif" ]
+      "https://media.giphy.com/media/VEPZELrzlenZu/giphy.gif", "https://media.giphy.com/media/13CoXDiaCcCoyk/giphy.gif", "https://media.giphy.com/media/1VKi2xud4qsrS/giphy.gif", ]
     #binding.pry
   end
 

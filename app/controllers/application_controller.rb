@@ -2,12 +2,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :logged_in?, :current_user
 
-  def main #main page
+  def main #root page
     if logged_in?
       @user = User.find(session[:user_id])
+      redirect_to users_path
     end
   end
-  
+
   private
 
 
