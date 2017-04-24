@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :authorize, except: [:new, :create]
   def index
     @search = User.search(params[:q])
-    @users = @search.result
+    @users = @search.result.uniq
+
     @interests = Interest.all
 
 
