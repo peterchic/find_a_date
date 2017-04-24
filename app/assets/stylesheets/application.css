@@ -14,6 +14,7 @@
  *= require_self
  */
 
+
 body {
   background-image: url("http://www.hdnicewallpapers.com/Walls/Big/Love%20Heart/Romantic_Couple_Seating_on_Beach_Wallpaper_Download.jpg");
   background-size: 100%;
@@ -22,6 +23,7 @@ body {
 }
 h1 {
   font-family: 'Questrial', sans-serif;
+  text-align: center;
 }
  .wrapper {
     width: 990px;
@@ -506,7 +508,8 @@ div ul li a:active {
 /* Buttons header Inbox Outbox */
 
 .button_sm {
-display: block;
+display: inline-block;
+
 }
 
 
@@ -757,6 +760,17 @@ table {
 #link a:active {
     color: black;
     text-decoration: none;
+}
+
+#new_message {
+  width: 30px;
+  margin-right: 10px;
+  margin-bottom: -10px;
+}
+
+#delete {
+  display: block;
+  margin-left: 145px;
 }
 
 </style>

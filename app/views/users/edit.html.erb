@@ -65,7 +65,7 @@ level of education?</span></li>
     <li><%= f.submit 'Save Changes' %></li>
   </ul>
   <% end %>
-
-  <%= button_to "Delete Profile", user_path(@user), method: 'delete' %>
+  <br>
+  <div id="delete"><%= button_to "Delete Profile", user_path(@user), method: 'delete' %></div>
 
 </div>

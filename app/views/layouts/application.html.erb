@@ -15,7 +15,7 @@
   <body> <!--add background color for body -->
     <div id="header">
       <div id="navbar">
-        <h1><a href="/"/>Find a Date</a></h1>
+        <h1 style="text-align: left;"><a href="/"/>Find a Date</a></h1>
         <ul>
 
           <li class="button"><a href="/users"/>Users</a></li>
@@ -26,13 +26,22 @@
 
             <li class="button"><%= link_to "Log Out  |", new_session_path, method: 'delete' %><li>
 
-            <li class="button_sm">
+            <div class="button_sm">
 
-                <%#  <img src="https://image.flaticon.com/icons/svg/138/138734.svg"/>
-                %>
-                <%= link_to "Inbox", received_messages_path %></li>
-            <li class="button_sm"> <%= link_to "Outbox", sent_messages_path %></li>
-            <li class="button_sm"> <%= link_to "My Matches", matches_path(session[:user_id]) %></li>
+              <% unred = 0 %>
+              <% User.find(session[:user_id]).received_messages.each do |message| %>
+                <% if message.status == false %>
+                <% unred +=1 %>
+                <% end %>
+              <% end %>
+              <% if unred > 0 %>
+                <a href="/messages/inbox"><img id="new_message" src="https://image.flaticon.com/icons/svg/138/138734.svg"/></a>
+              <% end %>
+                <%= link_to "Inbox |", received_messages_path %>
+            </div>
+            <div class="button_sm"> <%= link_to "Outbox |", sent_messages_path %>
+            </div>
+            <div class="button_sm"> <%= link_to "My Matches", matches_path(session[:user_id]) %></div>
 
           <% else %>
 

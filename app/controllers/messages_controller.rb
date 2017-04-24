@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
 
   def create
     message = Message.new(content: params[:message][:content], user_id: session[:user_id], match_id: params[:message][:match_id])
-  
+
     if message.valid?
        message.save
        redirect_to sent_messages_path
@@ -25,11 +25,11 @@ class MessagesController < ApplicationController
 
   def inbox
   #   messages = Message.find(session[:user_id])
-      my_received_messages
-
+      my_received_messages.each do |message|
+        message.status = true
+        message.save
+      end
   end
-
-
 
   private
 

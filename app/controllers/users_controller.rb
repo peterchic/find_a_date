@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     if logged_in?
       @user = User.find(session[:user_id])
-    
+
     end
   end
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
     @user = User.new(user_params)
     if @user.image.empty?
-      @user.image = "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
+      @user.image = "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
     end
     if @user.valid?
       @user.save

@@ -1,5 +1,7 @@
 <h2>Inbox</h2>
-
+<% @user.received_messages.each do |message| %>
+<% message.status = true %>
+<% end %>
 
 <table class="table-mail">
   <tr>
@@ -8,6 +10,7 @@
     <th id="col_2"><strong>From:</strong></th>
     <th id="col_3"><strong>Content:</strong></th>
     <th></th>
+  
   </tr>
   <% count = 1 %>
 <% @received_messages.each do |message| %>
@@ -17,6 +20,7 @@
     <td id="link"><%= link_to message.user.name, user_path(message.user_id)  %></td>
     <td><%= message.content %></td>
     <td><%= button_to "Reply", new_message_path(message.user_id), method: "get" %></td>
+
   </tr>
   <% count+=1 %>
 
