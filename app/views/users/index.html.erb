@@ -34,8 +34,6 @@
 
       <li><%= f.label :physical_shape_eq, "Physical Shape" %>
       <%= select(:q, :physical_shape_eq, ["Athletic", "Could be better", "Big guy"], :include_blank => true) %></li>
-
-
       <li>
 
         <div id="interests_form">
@@ -57,8 +55,7 @@
 
   <div class="profile_short"> <%# creates a box where short profile info will be presented in search results %>
     <div id="image-align">
-      <a href="<%= user_path(user) %>"><img id="avatar_img" src="<%= user.image %>"/>
-      </a>
+      <a href="<%= user_path(user) %>"><img id="avatar_img" src="<%= user.image %>"/></a>
       <p><strong><%= link_to user.name, user_path(user) %></strong></p>
       <p><strong>Age:</strong> <%= user.age %></p>
       <p><strong>Orientation:</strong> <%= user.orientation %></p>

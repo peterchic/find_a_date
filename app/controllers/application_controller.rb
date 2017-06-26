@@ -10,8 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
-
   def authorize
     unless logged_in?
       flash[:notice] = "You must be logged in to do that"
@@ -26,5 +24,4 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id])
   end
-
 end

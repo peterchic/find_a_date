@@ -1,24 +1,4 @@
-# README
+Find-A-Date
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This site is a pure Ruby on Rails application. It deals with simple authorization using b-crypt and sessions to store user login information.
+The site is an attempt to understand and implement the various match-making algorithyms dating sites use when users sign up. This app allows a user to log in/sign and find a match based off common interests, gender and sexual orientation. There is also a messaging system that allows users to message one another if they are identified as a match. Users have an inbox and outbox, and are able to delete messages as well as see if they are any unread messages in their mailbox.

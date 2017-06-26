@@ -1,24 +1,20 @@
-
-
-  <h1>Your Matches are: </h1>
-  <% @user.find_a_match.each do |user| %>
-  <div class="profile_short"> <%# creates a box where short profile info will be presented in search results %>
-    <div id="image-align">
-      <a href="<%= user_path(user) %>"><img id="avatar_img" src="<%= user.image %>"/>
-      </a>
-      <p><strong><%= link_to user.name, user_path(user) %></strong></p>
-      <p><strong>Age:</strong> <%= user.age %></p>
-      <p><strong>Orientation:</strong> <%= user.orientation %></p>
-      <% if user.bio.nil? %>
-        <% user.bio = "" %>
-      <p> <strong>Bio:</strong> <%= user.bio %> </p> <br><br>
-      <% elsif user.bio.length > 41 %>
-        <p><strong>Bio:</strong> <%= user.bio.chars[0..40].join %> ...</p>
-      <% else%>
-        <p><strong>Bio:</strong> ..</p> <br><br>
-      <% end %>
-      <%= button_to "View", user_path(user.id), method: "get" %>
-    </div>
-
+<h1>Your Matches are: </h1>
+<% @user.find_a_match.each do |user| %>
+<div class="profile_short"> <%# creates a box where short profile info will be presented in search results %>
+  <div id="image-align">
+    <a href="<%= user_path(user) %>"><img id="avatar_img" src="<%= user.image %>"/></a>
+    <p><strong><%= link_to user.name, user_path(user) %></strong></p>
+    <p><strong>Age:</strong> <%= user.age %></p>
+    <p><strong>Orientation:</strong> <%= user.orientation %></p>
+    <% if user.bio.nil? %>
+      <% user.bio = "" %>
+    <p> <strong>Bio:</strong> <%= user.bio %> </p> <br><br>
+    <% elsif user.bio.length > 41 %>
+      <p><strong>Bio:</strong> <%= user.bio.chars[0..40].join %> ...</p>
+    <% else%>
+      <p><strong>Bio:</strong> ..</p> <br><br>
+    <% end %>
+    <%= button_to "View", user_path(user.id), method: "get" %>
   </div>
-  <% end %>
+</div>
+<% end %>

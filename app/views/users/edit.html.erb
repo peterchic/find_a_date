@@ -1,8 +1,5 @@
 <h1><%= @user.name %>, edit your profile</h1>
 
-
-
-
 <div class = "form-style-7">
   <%= form_for @user do |f| %>
   <ul>
@@ -11,8 +8,8 @@
     <span>Enter your name here</span></li>
 
     <li><%= f.label :password%>
-      <%= f.password_field :password %>
-      <span>Enter your password here</span></li>
+    <%= f.password_field :password %>
+    <span>Enter your password here</span></li>
 
     <li><%= f.label :city%>
     <%= f.text_field :city %>
@@ -48,8 +45,7 @@
 
     <li><%= f.label :education%>
       <%= select(:user, :education, ["Doctorate", "Masters", "Bachelors", "Associates", "Some College", "High School", "Did not complete High School" ]) %>
-    <span>What is your highest
-level of education?</span></li>
+    <span>What is your highest level of education?</span></li>
 
     <li><%= f.label :image%>
     <%= f.text_field :image %>
@@ -67,5 +63,4 @@ level of education?</span></li>
   <% end %>
   <br>
   <div id="delete"><%= button_to "Delete Profile", user_path(@user), method: 'delete' %></div>
-
 </div>

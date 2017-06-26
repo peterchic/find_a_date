@@ -7,7 +7,6 @@
         <img id="profile_img" src="<%= @gifs.sample %>"/>
       <% end %>
   </div>
-
   <h1><%= @user.name %></h1>
   <h3>Bio: </h3><%= @user.bio %>
   <br><br>
@@ -17,49 +16,36 @@
         <td> <%= @user.age %></td> <%# second column %>
         <td><h3>Height: </h3></td><%# third column %>
         <td><%= @user.height %></td><%# fourth column %>
-
       </tr>
-
       <tr><%# second row %>
         <td><h3>Gender: </h3></td>
         <td><%= @user.sex %></td>
         <td><h3>Physical shape: </h3></td>
         <td><%= @user.physical_shape %></td>
       </tr>
-
       <tr><%# third row %>
         <td><h3>Sexual Orientation: </h3></td>
         <td><%= @user.orientation %></td>
         <td><h3>Children: </h3></td>
         <td><%= @user.children %></td>
       </tr>
-
       <tr><%# fourth row %>
         <td><h3>Ethnicity: </h3></td>
         <td><%= @user.ethnicity %></td>
         <td><h3>Education: </h3></td>
         <td><%= @user.education %></td>
       </tr>
-
-
     </table>
 
     <h3>Interests: </h3>
     <p> <% @user.interests.each do |interest| %>
     <%= interest.name %>,
     <% end %></p>
-
-
   <% if self.current_user == @user %>
-
     <%= button_to "Edit Profile", edit_user_path, method: "get" %>
     <br>
-
     <%= button_to "Find A Match!", matches_path, method: "get"  %>
     <% else %>
     <%= button_to "Send me A Message", new_message_path, method: "get"  %>
-
   <% end %>
-
-
 </div>

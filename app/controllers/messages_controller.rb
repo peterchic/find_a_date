@@ -47,6 +47,4 @@ class MessagesController < ApplicationController
     @received_messages = @user.received_messages
   end
 
-
-
 end

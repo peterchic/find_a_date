@@ -7,66 +7,25 @@ class User < ApplicationRecord
 
   validates_presence_of :name
 
-  # def received_messages
-  #   Message.where(match_id: self.id)
-  # end
-  # :city, :sex, :orientation, :ethnicity, :height, :physical_shape, :children, :relationship, :education, :image, :bio, :age,
-  # validates :bio, length: {minimum: 1, maximum: 1000}
-
-  # def method to look through all interest
-  # FINDS THE MATCHES ON THE TABLE
-
-  # def search
-  #   self.interests.each do |interest|
-  #     interest.users.each do |user|
-  #       user.name
-  #     end
-  #   end
-  #
-  # end
-
-  # def matches_orientation(user)
-  #   if self.orientation == 'Straight'
-  #     user.sex != self.sex
-  #   else
-  #     user.sex == self.sex
-  #   end
-  #   # binding.pry
-  # end
-
   def find_a_match
     users = User.joins(:user_interests).where('user_interests.interest_id IN (?)', self.interest_ids).where.not(id: self.id)
      #find all users that have same interests, excluding 'me'
     if self.orientation == 'Straight'
-       result = users.select do |user|
-
-         user.sex != self.sex && user.orientation == self.orientation
+      result = users.select do |user|
+        user.sex != self.sex && user.orientation == self.orientation
       end
       result.uniq
     elsif self.orientation == 'Lesbian' || self.orientation == 'Gay'
-       result = users.select do |user|
+      result = users.select do |user|
          user.sex == self.sex && user.orientation == self.orientation
       end
       result.uniq
     else self.orientation == 'Fluent'
-       result = users.select do |user|
-         user.orientation == self.orientation
+      result = users.select do |user|
+        user.orientation == self.orientation
       end
       result.uniq
     end
   end
-
-  # def search search_term
-  #
-  #   return scoped unless search_term.present?
-  #   where(
-  #     ['gender LIKE ?', "%#{search_term}%" AND 'age LIKE ?', "%#{search_term}%"] AND 'sexual_orientation LIKE ?' "%#{search_term}%" AND 'ethnicity LIKE ?', "%#{search_term}%"]
-  #   )
-  # end
-
-
-
-
-
 
 end
