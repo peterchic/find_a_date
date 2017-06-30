@@ -1,11 +1,7 @@
 <div class="container">
   <div class="avatar-flip">
-      <img id="profile_img" src="<%= @user.image %>"/>
-      <% if @user.id == 88 %>
-        <img id="profile_img" src="https://media.giphy.com/media/13CoXDiaCcCoyk/giphy.gif">
-      <% else %>
-        <img id="profile_img" src="<%= @gifs.sample %>"/>
-      <% end %>
+      <img id="profile_img" src="<%= @user.image %>" margin: 0 auto; style="max-width: 450px;"/>
+
   </div>
   <h1><%= @user.name %></h1>
   <h3>Bio: </h3><%= @user.bio %>
