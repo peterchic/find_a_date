@@ -1,6 +1,6 @@
 Find-A-Date
 
-![Find A Date Demo](/assets/images/findadate.gif)
+![Find A Date Demo](/app/assets/images/findadate.gif)
 
 
 This site is a pure Ruby on Rails application. It deals with simple authorization using b-crypt and sessions to store user login information.
