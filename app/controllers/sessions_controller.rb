@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to user_path(user.id)
     else
-      flash[:notice] = "Username or password incorrect"
+      flash[:notice] = "Incorrect Username or Password"
       redirect_to new_session_path
     end
   end

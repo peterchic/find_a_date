@@ -1,42 +1,37 @@
+<h1><%= @user.name %></h1>
+
 <div class="container">
   <div class="avatar-flip">
       <img id="profile_img" src="<%= @user.image %>" margin: 0 auto; style="max-width: 450px;"/>
-
   </div>
-  <h1><%= @user.name %></h1>
-  <h3>Bio: </h3><%= @user.bio %>
+  <h1>- Bio -</h1>
+  <div class='bio_text'><%= @user.bio %></div>
   <br><br>
-    <table>
+    <table class='table'>
+      <tbody>
       <tr> <%# first row %>
-        <td> <h3>Age: </h3></td><%# first column %>
-        <td> <%= @user.age %></td> <%# second column %>
-        <td><h3>Height: </h3></td><%# third column %>
-        <td><%= @user.height %></td><%# fourth column %>
+        <td>Age: <%= @user.age %> </td><%# first column %>
+        <td>Height: <%= @user.height %></td><%# third column %>
       </tr>
       <tr><%# second row %>
-        <td><h3>Gender: </h3></td>
-        <td><%= @user.sex %></td>
-        <td><h3>Physical shape: </h3></td>
-        <td><%= @user.physical_shape %></td>
+        <td>Gender: <%= @user.sex %></td>
+        <td>Physical shape: <%= @user.physical_shape %> </td>
       </tr>
       <tr><%# third row %>
-        <td><h3>Sexual Orientation: </h3></td>
-        <td><%= @user.orientation %></td>
-        <td><h3>Children: </h3></td>
-        <td><%= @user.children %></td>
+        <td>Sexual Orientation: <%= @user.orientation %> </td>
+        <td>Children: <%= @user.children %> </td>
       </tr>
       <tr><%# fourth row %>
-        <td><h3>Ethnicity: </h3></td>
-        <td><%= @user.ethnicity %></td>
-        <td><h3>Education: </h3></td>
-        <td><%= @user.education %></td>
+        <td>Ethnicity: <%= @user.ethnicity %> </td>
+        <td>Education: <%= @user.education %> </td>
       </tr>
+    </tbody>
     </table>
 
     <h3>Interests: </h3>
-    <p> <% @user.interests.each do |interest| %>
-    <%= interest.name %>,
-    <% end %></p>
+    <h2> - &nbsp  <% @user.interests.each do |interest| %>
+    <%= interest.name %> &nbsp
+    <% end %> - </h2>
   <% if self.current_user == @user %>
     <%= button_to "Edit Profile", edit_user_path, method: "get" %>
     <br>

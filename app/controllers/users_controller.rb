@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      flash[:notice] = "Incorrect info"
+      flash[:notice] = "Incorrect or Missing Information"
       redirect_to new_user_path
     end
   end
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
 
   def validate_url_hack
     unless params[:id].to_i == session[:user_id]
-    redirect_to users_path
+    redirect_to new_session_path
     flash[:message] = "Sorry, you don't have permission to do that."
     end
   end

@@ -1,5 +1,5 @@
-<h2>Inbox</h2>
-<% @user.received_messages.each do |message| %>
+<h1>Inbox</h1>
+<% @received_messages.each do |message| %>
 <% message.status = true %>
 <% end %>
 
@@ -9,8 +9,9 @@
     <th id="col_1"><strong>Sent on:</strong></th>
     <th id="col_2"><strong>From:</strong></th>
     <th id="col_3"><strong>Content:</strong></th>
+    <th id="col_4">Reply:</th>
     <th></th>
-  
+
   </tr>
   <% count = 1 %>
 <% @received_messages.each do |message| %>

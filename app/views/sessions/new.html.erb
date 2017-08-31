@@ -1,15 +1,16 @@
-<h2>Login</h2>
+<h1>Login</h1>
+<h3 style="text-align: center; color: blue; margin: 0px 0px 30px 0px;">Here for a Demo? Just click the 'Log In' button!</h3>
 
-<%= flash[:notice]  %>
+<p class='alert'><%= flash[:notice] %> </p>
 <div class = "form-style-7">
 
   <%= form_tag :sessions do %>
     <ul>
       <li><%= label_tag :name %>
-      <%= text_field_tag :name %>
+      <%= text_field_tag :name, placeholder="Demo User" %>
       <span>Enter your name here</span></li>
       <li><%= label_tag :password %>
-      <%= password_field_tag :password %>
+      <%= password_field_tag :password, placeholder=1 %>
       <span>Enter your password here</span></li>
       <li><%= submit_tag "Log In" %></li>
 
@@ -17,6 +18,6 @@
     <% end %>
     <br>
     <center>
-      <p>Don't have an account? <a href="/users/new"/>Start here</a></p>
+      <p>Don't have an account? <a href="/users/new"/>Sign Up!</a></p>
     </center>
 </div>

@@ -24,7 +24,7 @@
 
             <li class="button"><a href="/users/<%=session[:user_id]%>"/> Welcome, <%= User.find(session[:user_id]).name%> |</a></li>
 
-            <li class="button"><%= link_to "Log Out  |", new_session_path, method: 'delete' %><li>
+            <li class="button"><%= link_to "Log Out |", new_session_path, method: 'delete' %><li>
 
             <div class="button_sm">
 

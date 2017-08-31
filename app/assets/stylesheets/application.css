@@ -14,9 +14,17 @@
  *= require_self
  */
 
+.alert {
+  font-family: Helvetica, sans-serif;
+  color: red;
+  text-align: center;
+  font-size: 30px;
+}
 
 body {
   background-image: url("http://www.hdnicewallpapers.com/Walls/Big/Love%20Heart/Romantic_Couple_Seating_on_Beach_Wallpaper_Download.jpg");
+
+  /*background-color: red;*/
   background-size: 100%;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -25,18 +33,18 @@ h1 {
   font-family: 'Questrial', sans-serif;
   text-align: center;
 }
- .wrapper {
-    width: 965px;
-    margin: 0 auto;
-    margin-top: -30px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, .4);
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 25px;
-    height: 100%;
-    overflow: hidden;
 
+.wrapper {
+  width: 965px;
+  margin: 0 auto;
+  margin-top: -30px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, .4);
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 25px;
+  height: 100%;
+  overflow: hidden;
 }
 
 #header {
@@ -51,7 +59,6 @@ h1 {
   border-bottom-right-radius: 10px;
   z-index: 1;
 }
-
 
 #navbar {
   position: relative;
@@ -71,12 +78,10 @@ h1 {
 }
 
 #navbar li {
-
   display: inline;
   padding: 5px;
   font-family: 'Raleway', sans-serif;
 }
-
 
 /* SHOW PAGE*/
 #profile_img {
@@ -88,7 +93,6 @@ h1 {
 
 #image-align {
   vertical-align: bottom;
-
 }
 
 /* USERS PAGE */
@@ -108,8 +112,7 @@ h1 {
 }
 
 .profile_short a:link {
-    text-decoration: none;
-
+  text-decoration: none;
 }
 
 #avatar_img {
@@ -120,24 +123,21 @@ h1 {
 
 .profile_short input[type="submit"],
 .profile_short input[type="button"]{
-    background: #332a3d;
-    border: none;
-    padding: 10px 20px 10px 20px;
-    border-bottom: 3px solid #332a3d;
-    border-radius: 3px;
-    color: #D2E2FF;
+  background: #332a3d;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  border-bottom: 3px solid #332a3d;
+  border-radius: 3px;
+  color: #D2E2FF;
 }
 
 .profile_short input[type="submit"]:hover,
 .profile_short input[type="button"]:hover{
-    background: #5d4d70;
-    color:#fff;
+  background: #5d4d70;
+  color:#fff;
 }
 
-
-
 /* Sign Up form style */
-
 .form-style-7 {
   max-width:500px;
   margin:25px auto;
@@ -503,6 +503,7 @@ div ul li a:active {
 #navbar ul:last-child {
   margin-right: 30px;
 }
+
 .button {
   position: relative;
   float :right;
@@ -522,7 +523,7 @@ display: inline-block;
 /* Show page */
 .container {
   width: 900px;
-  margin: 120px auto 120px;
+  margin: 80px auto 120px;
   background-color: #fff;
   padding: 0 20px 20px;
   border-radius: 6px;
@@ -774,9 +775,36 @@ table {
   margin-bottom: -10px;
 }
 
-#delete {
-  display: block;
-  margin-left: 145px;
+.delete_button {
+  margin: auto;
+  width: 22%;
+}
+
+.bio_text {
+  max-width: 605px;
+  font-size: 20px;
+  margin: auto;
+  line-height: 1.2em;
+  border: 2px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #d5d2df;
+}
+
+.table {
+
+  /*border-style: solid;*/
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f1eada;
+}
+
+td {
+  padding: 15px; }
+
+tbody tr:nth-child(even) {
+  background-color: #fffff2;
 }
 
 </style>

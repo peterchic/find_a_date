@@ -61,6 +61,5 @@
     <li><%= f.submit 'Save Changes' %></li>
   </ul>
   <% end %>
-  <br>
-  <div id="delete"><%= button_to "Delete Profile", user_path(@user), method: 'delete' %></div>
+  <div class="delete_button"><%= button_to "Delete Profile", user_path(@user), method: 'delete' %></div>
 </div>
