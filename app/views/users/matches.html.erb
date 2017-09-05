@@ -1,4 +1,5 @@
 <h1>Your Matches are: </h1>
+<div class="center">
 <% @user.find_a_match.each do |user| %>
 <div class="profile_short"> <%# creates a box where short profile info will be presented in search results %>
   <div id="image-align">
@@ -18,3 +19,4 @@
   </div>
 </div>
 <% end %>
+</div>
