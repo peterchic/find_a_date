@@ -16,7 +16,7 @@
 
  body {
    background-image: url("https://typeset-beta.imgix.net/rehost%2F2016%2F9%2F13%2F83fc83c0-a71c-4caf-8f35-dc03798774bd.jpg");
-   background-size: 100%;
+   background-size: cover;
    background-attachment: fixed;
    background-repeat: no-repeat;
  }
