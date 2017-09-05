@@ -51,8 +51,8 @@
 
 <h1>Users</h1>
 
+<div class="center">
   <% @users.each do |user|%>
-
   <div class="profile_short"> <%# creates a box where short profile info will be presented in search results %>
     <div id="image-align">
       <a href="<%= user_path(user) %>"><img id="avatar_img" src="<%= user.image %>"/></a>
@@ -73,3 +73,4 @@
   </div>
 
   <% end %>
+</div>

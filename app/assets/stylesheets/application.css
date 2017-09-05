@@ -552,11 +552,17 @@ p {
   color: #666;
 }
 
+.center {
+  /*margin: 2%;*/
+  margin-left: 18px;
+  position: relative;
+}
+
 #log-sign-button {
   font-size: 16px;
   line-height: 26px;
   margin-bottom: 20px;
-  color: white;  
+  color: white;
 }
 
 .container input[type="submit"],
