@@ -11,20 +11,20 @@ class MessagesController < ApplicationController
     if message.valid?
        message.save
        redirect_to sent_messages_path
-     else
+    else
        render_to new_message_path
-     end
+    end
   end
 
   def outbox
-      my_sent_messages
+    my_sent_messages
   end
 
   def inbox
-      my_received_messages.each do |message|
-        message.status = true
-        message.save
-      end
+    my_received_messages.each do |message|
+      message.status = true
+      message.save
+    end
   end
 
   private

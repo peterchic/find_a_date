@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    #helper method from application_controller.rb that checks if session is present i.e. session[:user_id].present?
     if logged_in?
       @user = User.find(session[:user_id])
     end
