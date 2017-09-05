@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @search = User.search(params[:q])
-    @users = @search.result.uniq
+    @users = @search.result.distinct
     @interests = Interest.all
     if(logged_in?)
       @user = User.find(session[:user_id])

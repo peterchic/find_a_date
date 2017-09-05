@@ -1,0 +1,471 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.2
+-- Dumped by pg_dump version 9.6.2
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: peterchicarielli
+--
+
+CREATE TABLE ar_internal_metadata (
+    key character varying NOT NULL,
+    value character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE ar_internal_metadata OWNER TO peterchicarielli;
+
+--
+-- Name: interests; Type: TABLE; Schema: public; Owner: peterchicarielli
+--
+
+CREATE TABLE interests (
+    id integer NOT NULL,
+    name character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE interests OWNER TO peterchicarielli;
+
+--
+-- Name: interests_id_seq; Type: SEQUENCE; Schema: public; Owner: peterchicarielli
+--
+
+CREATE SEQUENCE interests_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE interests_id_seq OWNER TO peterchicarielli;
+
+--
+-- Name: interests_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: peterchicarielli
+--
+
+ALTER SEQUENCE interests_id_seq OWNED BY interests.id;
+
+
+--
+-- Name: messages; Type: TABLE; Schema: public; Owner: peterchicarielli
+--
+
+CREATE TABLE messages (
+    id integer NOT NULL,
+    user_id integer,
+    match_id integer,
+    content text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    status boolean DEFAULT false
+);
+
+
+ALTER TABLE messages OWNER TO peterchicarielli;
+
+--
+-- Name: messages_id_seq; Type: SEQUENCE; Schema: public; Owner: peterchicarielli
+--
+
+CREATE SEQUENCE messages_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE messages_id_seq OWNER TO peterchicarielli;
+
+--
+-- Name: messages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: peterchicarielli
+--
+
+ALTER SEQUENCE messages_id_seq OWNED BY messages.id;
+
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: peterchicarielli
+--
+
+CREATE TABLE schema_migrations (
+    version character varying NOT NULL
+);
+
+
+ALTER TABLE schema_migrations OWNER TO peterchicarielli;
+
+--
+-- Name: user_interests; Type: TABLE; Schema: public; Owner: peterchicarielli
+--
+
+CREATE TABLE user_interests (
+    id integer NOT NULL,
+    interest_id integer,
+    user_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE user_interests OWNER TO peterchicarielli;
+
+--
+-- Name: user_interests_id_seq; Type: SEQUENCE; Schema: public; Owner: peterchicarielli
+--
+
+CREATE SEQUENCE user_interests_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE user_interests_id_seq OWNER TO peterchicarielli;
+
+--
+-- Name: user_interests_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: peterchicarielli
+--
+
+ALTER SEQUENCE user_interests_id_seq OWNED BY user_interests.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: peterchicarielli
+--
+
+CREATE TABLE users (
+    id integer NOT NULL,
+    name character varying,
+    password_digest character varying,
+    city character varying,
+    age integer,
+    sex character varying,
+    orientation character varying,
+    ethnicity character varying,
+    height integer,
+    physical_shape character varying,
+    children integer,
+    relationship character varying,
+    education character varying,
+    image character varying,
+    bio text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE users OWNER TO peterchicarielli;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: peterchicarielli
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE users_id_seq OWNER TO peterchicarielli;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: peterchicarielli
+--
+
+ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+
+--
+-- Name: interests id; Type: DEFAULT; Schema: public; Owner: peterchicarielli
+--
+
+ALTER TABLE ONLY interests ALTER COLUMN id SET DEFAULT nextval('interests_id_seq'::regclass);
+
+
+--
+-- Name: messages id; Type: DEFAULT; Schema: public; Owner: peterchicarielli
+--
+
+ALTER TABLE ONLY messages ALTER COLUMN id SET DEFAULT nextval('messages_id_seq'::regclass);
+
+
+--
+-- Name: user_interests id; Type: DEFAULT; Schema: public; Owner: peterchicarielli
+--
+
+ALTER TABLE ONLY user_interests ALTER COLUMN id SET DEFAULT nextval('user_interests_id_seq'::regclass);
+
+
+--
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: peterchicarielli
+--
+
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: peterchicarielli
+--
+
+COPY ar_internal_metadata (key, value, created_at, updated_at) FROM stdin;
+environment	development	2017-06-29 16:02:32.551992	2017-06-29 16:02:32.551992
+\.
+
+
+--
+-- Data for Name: interests; Type: TABLE DATA; Schema: public; Owner: peterchicarielli
+--
+
+COPY interests (id, name, created_at, updated_at) FROM stdin;
+1	Outdoors	2017-06-29 16:02:32.721793	2017-06-29 16:02:32.721793
+2	Partying	2017-06-29 16:02:32.726082	2017-06-29 16:02:32.726082
+3	Painting	2017-06-29 16:02:32.72837	2017-06-29 16:02:32.72837
+4	Reading	2017-06-29 16:02:32.730246	2017-06-29 16:02:32.730246
+5	Travel	2017-06-29 16:02:32.732095	2017-06-29 16:02:32.732095
+6	Movies	2017-06-29 16:02:32.733873	2017-06-29 16:02:32.733873
+7	Coffee	2017-06-29 16:02:32.735648	2017-06-29 16:02:32.735648
+8	Cooking	2017-06-29 16:02:32.737449	2017-06-29 16:02:32.737449
+9	Exercise	2017-06-29 16:02:32.739402	2017-06-29 16:02:32.739402
+10	Shopping	2017-06-29 16:02:32.741137	2017-06-29 16:02:32.741137
+\.
+
+
+--
+-- Name: interests_id_seq; Type: SEQUENCE SET; Schema: public; Owner: peterchicarielli
+--
+
+SELECT pg_catalog.setval('interests_id_seq', 10, true);
+
+
+--
+-- Data for Name: messages; Type: TABLE DATA; Schema: public; Owner: peterchicarielli
+--
+
+COPY messages (id, user_id, match_id, content, created_at, updated_at, status) FROM stdin;
+8	8	1	Hey Pete! I saw we had some matches. Care to join me for some coffee tomorrow?	2017-06-29 18:02:04.444708	2017-06-29 18:02:16.799623	t
+10	10	3	Hey Daniel! Want to grab some.....COFFEE!!!!!!?	2017-06-30 13:24:26.773413	2017-06-30 13:24:44.354514	t
+9	1	8	Hey Sarah! Sure!	2017-06-29 18:02:24.927934	2017-07-04 02:03:56.75318	t
+13	1	8	Hey Sarah! Wanna meet up?	2017-07-04 02:03:41.938708	2017-07-04 02:03:56.757758	t
+14	8	1	ok!	2017-07-04 02:04:10.739121	2017-07-04 02:04:15.972507	t
+11	3	10	Hey Tina. Thanks for the message. I love coffee! Lets do this!	2017-06-30 13:25:13.343542	2017-08-02 19:42:27.453792	t
+15	11	10	Hey girl!	2017-08-02 19:42:14.710946	2017-08-02 19:42:27.457684	t
+16	10	11	Hey!	2017-08-02 19:42:35.85	2017-08-22 16:19:58.383438	t
+17	1	8	Hey Sarah! Want to grab a coffee sometime?	2017-08-22 17:41:02.18603	2017-08-22 17:41:22.811066	t
+19	4	3	Hey Daniel!	2017-08-22 19:37:20.436126	2017-08-22 19:37:34.024289	t
+12	3	4	Let's go hiking!	2017-06-30 13:25:52.916886	2017-08-22 19:38:40.493465	t
+20	3	4	Hey! How are you!	2017-08-22 19:37:48.393707	2017-08-22 19:38:40.499076	t
+21	3	4	Hello!	2017-08-22 19:38:19.475455	2017-08-22 19:38:40.503093	t
+22	4	3	why doesn't this work?	2017-08-22 19:38:50.111126	2017-08-22 19:40:36.076951	t
+18	8	1	Sure. Tomorrow at noon!?	2017-08-22 17:41:41.081761	2017-08-22 19:40:46.061985	t
+23	10	3	Hey Daniel! Want to grab coffee!?	2017-08-22 19:44:02.157194	2017-08-22 19:44:14.042037	t
+24	3	10	Hey Tina! Sure thing!	2017-08-22 19:44:32.982796	2017-08-22 19:44:38.273319	t
+25	1	8	Hey Sarah!	2017-08-22 20:02:15.272915	2017-08-22 20:02:30.055626	t
+28	6	8	Hey Sarah!	2017-08-22 20:42:25.15352	2017-08-22 20:42:39.135742	t
+29	8	6	Hello!	2017-08-22 20:42:47.652112	2017-08-22 20:46:31.468868	t
+30	6	4	Hey Meryl!	2017-08-22 20:48:21.418223	2017-08-22 20:48:36.2149	t
+31	4	6	How's it goin!?	2017-08-22 20:48:46.352504	2017-08-22 20:48:46.352504	f
+26	8	1	Hey!	2017-08-22 20:02:38.766604	2017-08-31 21:19:58.040017	t
+\.
+
+
+--
+-- Name: messages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: peterchicarielli
+--
+
+SELECT pg_catalog.setval('messages_id_seq', 31, true);
+
+
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: peterchicarielli
+--
+
+COPY schema_migrations (version) FROM stdin;
+20170423235802
+20170417194808
+20170417194844
+20170417194904
+20170418222510
+20170420185321
+20170423235556
+\.
+
+
+--
+-- Data for Name: user_interests; Type: TABLE DATA; Schema: public; Owner: peterchicarielli
+--
+
+COPY user_interests (id, interest_id, user_id, created_at, updated_at) FROM stdin;
+1	1	1	2017-06-29 16:19:17.915123	2017-06-29 16:19:17.915123
+2	3	1	2017-06-29 16:19:17.91699	2017-06-29 16:19:17.91699
+3	4	1	2017-06-29 16:19:17.91813	2017-06-29 16:19:17.91813
+4	8	1	2017-06-29 16:19:17.919177	2017-06-29 16:19:17.919177
+5	9	1	2017-06-29 16:19:17.920347	2017-06-29 16:19:17.920347
+6	1	2	2017-06-29 16:22:38.876056	2017-06-29 16:22:38.876056
+7	5	2	2017-06-29 16:22:38.877132	2017-06-29 16:22:38.877132
+8	6	2	2017-06-29 16:22:38.878289	2017-06-29 16:22:38.878289
+9	2	3	2017-06-29 16:25:54.242744	2017-06-29 16:25:54.242744
+10	3	3	2017-06-29 16:25:54.24419	2017-06-29 16:25:54.24419
+11	7	3	2017-06-29 16:25:54.246121	2017-06-29 16:25:54.246121
+12	10	3	2017-06-29 16:25:54.247439	2017-06-29 16:25:54.247439
+13	1	4	2017-06-29 16:32:42.677577	2017-06-29 16:32:42.677577
+14	2	4	2017-06-29 16:32:42.678813	2017-06-29 16:32:42.678813
+15	4	4	2017-06-29 16:32:42.679896	2017-06-29 16:32:42.679896
+16	7	4	2017-06-29 16:32:42.680934	2017-06-29 16:32:42.680934
+17	9	4	2017-06-29 16:32:42.682062	2017-06-29 16:32:42.682062
+18	1	5	2017-06-29 16:44:35.893841	2017-06-29 16:44:35.893841
+19	2	5	2017-06-29 16:44:35.89864	2017-06-29 16:44:35.89864
+20	5	5	2017-06-29 16:44:35.899969	2017-06-29 16:44:35.899969
+21	9	5	2017-06-29 16:44:35.901124	2017-06-29 16:44:35.901124
+22	4	6	2017-06-29 16:46:25.148324	2017-06-29 16:46:25.148324
+23	6	6	2017-06-29 16:46:25.149567	2017-06-29 16:46:25.149567
+24	9	6	2017-06-29 16:46:25.150821	2017-06-29 16:46:25.150821
+25	1	7	2017-06-29 17:47:36.353138	2017-06-29 17:47:36.353138
+26	4	7	2017-06-29 17:47:36.355214	2017-06-29 17:47:36.355214
+27	7	7	2017-06-29 17:47:36.356636	2017-06-29 17:47:36.356636
+28	9	7	2017-06-29 17:47:36.358141	2017-06-29 17:47:36.358141
+29	8	7	2017-06-29 17:47:54.52765	2017-06-29 17:47:54.52765
+30	1	8	2017-06-29 18:01:19.594331	2017-06-29 18:01:19.594331
+31	4	8	2017-06-29 18:01:19.595714	2017-06-29 18:01:19.595714
+32	5	8	2017-06-29 18:01:19.596873	2017-06-29 18:01:19.596873
+33	8	8	2017-06-29 18:01:19.598043	2017-06-29 18:01:19.598043
+34	3	8	2017-06-29 18:01:31.928836	2017-06-29 18:01:31.928836
+35	4	9	2017-06-30 13:20:43.522995	2017-06-30 13:20:43.522995
+36	7	9	2017-06-30 13:20:43.52565	2017-06-30 13:20:43.52565
+37	9	9	2017-06-30 13:20:43.526855	2017-06-30 13:20:43.526855
+38	5	9	2017-06-30 13:20:52.569413	2017-06-30 13:20:52.569413
+39	2	10	2017-06-30 13:23:39.844957	2017-06-30 13:23:39.844957
+40	7	10	2017-06-30 13:23:39.846201	2017-06-30 13:23:39.846201
+41	10	10	2017-06-30 13:23:39.847474	2017-06-30 13:23:39.847474
+42	5	10	2017-06-30 13:23:49.018788	2017-06-30 13:23:49.018788
+43	1	11	2017-08-02 19:41:51.486147	2017-08-02 19:41:51.486147
+44	2	11	2017-08-02 19:41:51.488383	2017-08-02 19:41:51.488383
+45	4	11	2017-08-02 19:41:51.48972	2017-08-02 19:41:51.48972
+46	6	11	2017-08-02 19:41:51.491164	2017-08-02 19:41:51.491164
+\.
+
+
+--
+-- Name: user_interests_id_seq; Type: SEQUENCE SET; Schema: public; Owner: peterchicarielli
+--
+
+SELECT pg_catalog.setval('user_interests_id_seq', 46, true);
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: peterchicarielli
+--
+
+COPY users (id, name, password_digest, city, age, sex, orientation, ethnicity, height, physical_shape, children, relationship, education, image, bio, created_at, updated_at) FROM stdin;
+3	Daniel	$2a$10$KYCsGqECxByTkvjf0iRnCeknh.QGSNJXJLG/zqztnx4nV84caTfVy	NYC	34	Male	Straight	Korean	70	Athletic	0	\N	Bachelors	https://avatars0.githubusercontent.com/u/23022234?v=3&s=460	I love all women. Favorite date spot: Staten Island Ferry.	2017-06-29 16:25:54.240679	2017-06-29 16:25:54.240679
+4	Meryl	$2a$10$9mY1n/olbskvDD6y71zd4.xFPJz7g0YonwwX2KrTmbNRCJsynWHtG	NYC	30	Female	Straight	White	67	Athletic	0	\N	Bachelors	https://avatars3.githubusercontent.com/u/24256463?v=3&s=460	Originally from NOLA, but currently reside in Brooklyn. East Siiiiiide!	2017-06-29 16:32:42.672092	2017-06-29 16:32:42.672092
+5	Michelle	$2a$10$uFwjl.ir98ZMjTCfXGIcj.jGgY6kV6o6ujsi73pw.u/i2gHpqu0ta	NYC	28	Female	Lesbian	Hispanic or Latino	63	Athletic	0	\N	Masters	https://avatars0.githubusercontent.com/u/1933930?v=3&s=400	Bi-lingual. Currently a front end developer and I love to make things come alive!	2017-06-29 16:44:35.89202	2017-06-29 16:44:35.89202
+6	Naz	$2a$10$dEN3SEWzu.3FGl57Sr8jMO6/TZ55QvCf5M1bDF3ez6eXAlDAtlIIu	NYC	27	Male	Straight	Asian/Pacific Islander	69	Athletic	0	\N	Masters	https://avatars3.githubusercontent.com/u/24902955?v=3&s=460	Love street fighter, DBZ, waffle fries and codewars!	2017-06-29 16:46:25.1464	2017-06-29 16:46:25.1464
+7	Sammy	$2a$10$tQknYC5hsIRyLVUfwTHP/eFLe5AQlN/RxGIq6qp2iEkgSdmnvXQui	NYC	30	Male	Straight	White	73	Athletic	0	\N	Masters	https://avatars1.githubusercontent.com/u/25465464?v=3&s=460	Hello all! New to the city and would love to find a perfect match! 	2017-06-29 17:47:36.34834	2017-06-29 17:47:36.34834
+8	Sarah	$2a$10$/xzrX1iIKVVdONU5OhmuveP495Z9QjDxNLQdNnRPmnoD1M8UWAc7W	NYC	30	Female	Straight	White	66	Athletic	0	\N	Masters	https://avatars3.githubusercontent.com/u/25333018?v=3&s=460	Hello! Single and ready to mingle! Love long walks on the beach and waffle fries!	2017-06-29 18:01:19.590001	2017-06-29 18:01:19.590001
+10	Tina	$2a$10$G01Zgzuh.hjUlhz2uJY5auopZn9EhuSnIPVteUAhEUPOENKzAA5H6	NYC	27	Female	Straight	Asian/Pacific Islander	66	Athletic	0	\N	Bachelors	https://avatars3.githubusercontent.com/u/22648335?v=3&s=460	I love coffee. Looking for the perfect man in NYC!	2017-06-30 13:23:39.843064	2017-06-30 13:23:39.843064
+2	Anna	$2a$10$lXlGF4ky5ZZOFuJxCR3COOh6tZ1Iu.tyOj6IK.V0H0.NkShHbfdUe	NYC	30	Female	Lesbian	White	66	Athletic	0	\N	Masters	https://avatars3.githubusercontent.com/u/11250822?v=4&s=400	Russian born and raised, but came to NYC for love. Studying to be a web developer at the moment.	2017-06-29 16:22:38.874316	2017-08-22 16:17:51.54918
+11	Art	$2a$10$o0iwh3gBFsiz.pQf67jTA.u5gCkMWFQ2G/unUPVVCQg2BgEhWcC.G	ocean city	18	Male	Straight	Black/African descent	80	Athletic	0	\N	Masters	https://avatars1.githubusercontent.com/u/1052630?v=4&s=400	The world is a stage and we are the actors. 	2017-08-02 19:41:51.473594	2017-08-22 16:19:47.680545
+1	Demo User	$2a$10$5CBnMQly394Uu2mweN7/5.8Ezx7AnbYBQJ7KvAHyiYQfyBJMJogLK	NYC	31	Male	Straight	White	71	Athletic	0	\N	Bachelors	https://avatars2.githubusercontent.com/u/25327138?v=3&s=460	Love to love you baby. I've recently moved to the city. Looking for love in all the wrong places. Call me!	2017-06-29 16:19:17.911736	2017-08-31 21:35:49.283239
+\.
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: peterchicarielli
+--
+
+SELECT pg_catalog.setval('users_id_seq', 11, true);
+
+
+--
+-- Name: ar_internal_metadata ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: peterchicarielli
+--
+
+ALTER TABLE ONLY ar_internal_metadata
+    ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: interests interests_pkey; Type: CONSTRAINT; Schema: public; Owner: peterchicarielli
+--
+
+ALTER TABLE ONLY interests
+    ADD CONSTRAINT interests_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: messages messages_pkey; Type: CONSTRAINT; Schema: public; Owner: peterchicarielli
+--
+
+ALTER TABLE ONLY messages
+    ADD CONSTRAINT messages_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: peterchicarielli
+--
+
+ALTER TABLE ONLY schema_migrations
+    ADD CONSTRAINT schema_migrations_pkey PRIMARY KEY (version);
+
+
+--
+-- Name: user_interests user_interests_pkey; Type: CONSTRAINT; Schema: public; Owner: peterchicarielli
+--
+
+ALTER TABLE ONLY user_interests
+    ADD CONSTRAINT user_interests_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: peterchicarielli
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
