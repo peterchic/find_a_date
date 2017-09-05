@@ -38,12 +38,25 @@ h1 {
   margin: 0 auto;
   margin-top: -30px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, .4);
+  background-color: rgba(255, 255, 255, .7);
   padding-left: 25px;
   padding-right: 25px;
   padding-top: 25px;
   height: 100%;
   overflow: hidden;
+}
+
+.main-wrapper {
+  margin: 25px auto;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 25px;
+  width: 250px;
+  height: 300px;
+  margin-top: 90px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, .8);
+  /*background-color: #fff8ef;*/
 }
 
 #header {
@@ -52,6 +65,7 @@ h1 {
   margin-bottom: -10px;
   position: relative;
   top: -10px;
+
   background-color: #332a3d;
   height: 100px;
   border-bottom-left-radius: 10px;
@@ -260,36 +274,29 @@ h1 {
   border-radius: 3px;
 }
 
-
-
-
- #interests_form > span{
-    background: #F3F3F3;
-    display: block;
-    padding: 3px;
-    margin: 0 -9px -9px -9px;
-    text-align: center;
-    color: #C0C0C0;
-    font-family: 'Raleway', sans-serif;
-    font-size: 11px;
-
+#interests_form > span{
+  background: #F3F3F3;
+  display: block;
+  padding: 3px;
+  margin: 0 -9px -9px -9px;
+  text-align: center;
+  color: #C0C0C0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 11px;
 }
 
 #interests_form > label{
-    margin-top: -19px;
-    background: #FFFFFF;
-    height: 14px;
-    padding: 2px 5px 2px 5px;
-    color: #B9B9B9;
-    font-size: 14px;
-    overflow: hidden;
-    font-family: 'Raleway', sans-serif;
+  margin-top: -19px;
+  background: #FFFFFF;
+  height: 14px;
+  padding: 2px 5px 2px 5px;
+  color: #B9B9B9;
+  font-size: 14px;
+  overflow: hidden;
+  font-family: 'Raleway', sans-serif;
 }
 
-
 /* Search form style*/
-
-
 .form-style-1 {
   max-width:auto;
   margin-left: 0px;
@@ -307,7 +314,6 @@ h1 {
     padding:0;
     margin:0;
 }
-
 
 .form-style-1 li{
     display: inline-block;
@@ -335,40 +341,31 @@ h1 {
     overflow: hidden;
     font-family: 'Raleway', sans-serif;
 }
+
 .form-style-1 input[type="text"],
 .form-style-1 input[type="date"],
 .form-style-1 input[type="datetime"],
 .form-style-1 input[type="number"],
 .form-style-1 input[type="search"],
 .form-style-1 textarea,
-.form-style-1 select
-{
-
-    width: 100%;
-    display: block;
-    outline: none;
-    border: none;
-    height: 15px; /* was 25*/
-    line-height: 10px;/* was 25*/
-    font-size: 12px;/* was 16*/
-    padding: 0;
-    font-family: 'Raleway', sans-serif;
+.form-style-1 select {
+  width: 100%;
+  display: block;
+  outline: none;
+  border: none;
+  height: 15px; /* was 25*/
+  line-height: 10px;/* was 25*/
+  font-size: 12px;/* was 16*/
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
 }
-/*.form-style-1 input[type="text"]:focus,
-.form-style-1 input[type="date"]:focus,
-.form-style-1 input[type="datetime"]:focus,
-.form-style-1 input[type="number"]:focus,
-.form-style-1 input[type="search"]:focus,
-.form-style-1 textarea:focus,
-.form-style-1 select:focus
-{
-}*/
 
 .form-style-1 textarea{
   resize:none;
 }
+
 .form-style-1 input[type="submit"],
-.form-style-1 input[type="button"]{
+.form-style-1 input[type="button"] {
   background: #332a3d;
   border: none;
   padding: 10px 20px 10px 20px;
@@ -396,7 +393,6 @@ h1 {
   border-radius: 3px;
 }
 
-
 #interests_form > label{
   margin-top: -19px;
   background: #FFFFFF;
@@ -421,7 +417,6 @@ h1 {
 }
 
 /* LINKS */
-
 /* logo find a date color */
 div h1 a {
   color: white;
@@ -455,32 +450,30 @@ div ul li a:active {
 
 #SignUp {
   position: relative;
-  float: left;
+  background-color: #332a3d;
   height: 40px;
-  width: 230px;
   font-family: 'Questrial', sans-serif;
   font-weight: bold;
   text-align: center;
   padding-bottom: 10px;
   border: 1px solid #332a3d;
   border-radius: 10px;
-  margin-top: 90px;
+  margin-top: 90px auto;
   color: #332a3d;
 }
 
 #SignIn {
   position: relative;
-  float: right;
+  background-color: #332a3d;
   height: 40px;
-  width: 230px;
   font-family: 'Questrial', sans-serif;
   font-weight: bold;
   text-align: center;
   padding-bottom: 10px;
   border: 1px solid #332a3d;
   border-radius: 10px;
-  margin-top: 90px;
-  margin-right: 25px;
+  margin-top: 35px;
+  margin-bottom: 15px;
   color: #332a3d;
 }
 
@@ -557,6 +550,13 @@ p {
   line-height: 26px;
   margin-bottom: 20px;
   color: #666;
+}
+
+#log-sign-button {
+  font-size: 16px;
+  line-height: 26px;
+  margin-bottom: 20px;
+  color: white;  
 }
 
 .container input[type="submit"],
