@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-
   before_action :authorize, except: [:new, :create]
+
   def index
     @search = User.search(params[:q])
     @users = @search.result.uniq
@@ -32,8 +32,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @gifs = ["https://media.giphy.com/media/rlkpAmX3gaLWE/giphy.gif", "https://media.giphy.com/media/6iby2g9qPhpVC/giphy.gif", "https://media.giphy.com/media/DdotCCeucTHmU/giphy.gif", "https://media.giphy.com/media/ysMRbIu53piCY/giphy.gif",
-    # "https://media.giphy.com/media/VEPZELrzlenZu/giphy.gif", "https://media.giphy.com/media/13CoXDiaCcCoyk/giphy.gif", "https://media.giphy.com/media/1VKi2xud4qsrS/giphy.gif", ]
   end
 
   def edit
@@ -62,10 +60,6 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:name, :password, :password_confirmation, :sex, :orientation, :ethnicity, :image, :city, :age, :height, :physical_shape, :children, :education, :bio, interest_ids: [])
-  end
-
   def validate_url_hack
     unless params[:id].to_i == session[:user_id]
     redirect_to new_session_path
@@ -73,7 +67,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def password_match
-    params[:password] == params[:password_confirmation]
+  def user_params
+    params.require(:user).permit(:name, :password, :password_confirmation, :sex, :orientation, :ethnicity, :image, :city, :age, :height, :physical_shape, :children, :education, :bio, interest_ids: [])
   end
+
 end
