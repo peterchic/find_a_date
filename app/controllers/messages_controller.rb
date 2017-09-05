@@ -2,9 +2,7 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
-    # binding.pry
     @receiver = User.find(params[:id])
-    # binding.pry
   end
 
   def create
@@ -19,12 +17,10 @@ class MessagesController < ApplicationController
   end
 
   def outbox
-  #   messages = Message.find(session[:user_id])
       my_sent_messages
   end
 
   def inbox
-  #   messages = Message.find(session[:user_id])
       my_received_messages.each do |message|
         message.status = true
         message.save
@@ -32,10 +28,6 @@ class MessagesController < ApplicationController
   end
 
   private
-
-  def message_params
-    params.require(:message).permit(:content, :user_id, :match_id)
-  end
 
   def my_sent_messages
     @user = User.find(session[:user_id])
@@ -45,6 +37,10 @@ class MessagesController < ApplicationController
   def my_received_messages
     @user = User.find(session[:user_id])
     @received_messages = @user.received_messages
+  end
+
+  def message_params
+    params.require(:message).permit(:content, :user_id, :match_id)
   end
 
 end
